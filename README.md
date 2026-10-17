@@ -23,6 +23,15 @@ The customer website uses the workplace's own **colours, fonts and icon**. The o
 - Data is stored in **MongoDB** (`mongodb://127.0.0.1:27017`, database `queuesense`). If MongoDB isn't running, the server falls back to an in-memory database, and that data is lost on restart.
 - **Tutorial:** http://localhost:8000/guide.
 
+## Put it online (Render.com, free)
+1. Sign in to **render.com** with GitHub → **New + → Blueprint** → pick this repository. Render reads `render.yaml`.
+2. **MONGO_URL** is optional:
+   - **Left empty:** the site runs with an in-memory database. Data is **erased whenever the server restarts**, and on the
+     free plan it sleeps after about 15 idle minutes. The operator account page shows a "Temporary storage" warning.
+   - **To keep data:** create a free MongoDB Atlas cluster and paste its connection string as `MONGO_URL` under the
+     service's **Environment** tab. Render redeploys automatically.
+3. Every `git push` to `main` redeploys the site.
+
 ## First use (2 minutes)
 1. Start page → **I run a place → Create a workplace**.
 2. Enter the name, pick the type, choose colours and font, and set the staff and admin PINs.

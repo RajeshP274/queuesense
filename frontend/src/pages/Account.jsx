@@ -20,6 +20,9 @@ export default function Account() {
   });
   useEffect(() => { if (session) { load(); const id = setInterval(load, 15000); return () => clearInterval(id); } return undefined; /* eslint-disable-next-line */ }, []);
   useEffect(() => { document.title = `${t("account.title")} · QueueSense`; }, [t]);
+  // Without a database (no MONGO_URL) the server keeps data in memory only: warn the operator.
+  const [temporary, setTemporary] = useState(false);
+  useEffect(() => { api("/api/health").then((h) => setTemporary(h.storage === "mongomock")).catch(() => {}); }, []);
 
   if (!session || !session.token) return <Navigate to="/signin?next=/account" replace />;
 
@@ -47,6 +50,16 @@ export default function Account() {
       </header>
 
       <main className="bp-main">
+        {temporary && (
+          <div className="card" role="status" style={{ borderColor: "var(--warning, #F79009)", marginBottom: 16 }}>
+            <b>⚠ Temporary storage</b>
+            <p className="small muted" style={{ margin: "4px 0 0" }}>
+              This server has no database connected, so accounts, workplaces and tickets are erased when it restarts
+              (free hosting restarts after about 15 idle minutes). Add a MongoDB Atlas connection string as MONGO_URL
+              in your hosting settings to keep data permanently.
+            </p>
+          </div>
+        )}
         <section className="acct-head">
           <div>
             <p className="kicker" style={{ margin: 0 }}>{t("account.kicker")}</p>
