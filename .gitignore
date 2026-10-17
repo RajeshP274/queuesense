@@ -1,0 +1,21 @@
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets generated on first run (JWT signing key, phone-hash pepper) - never commit
+backend/.jwt_secret
+backend/.phone_pepper
+.env
+
+# Node
+frontend/node_modules/
+
+# Logs / local
+*.log
+server.pid
+.DS_Store
+Thumbs.db
+
+# frontend/dist IS committed on purpose so the server can run without Node installed.

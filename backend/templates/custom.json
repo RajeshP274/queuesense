@@ -1,0 +1,23 @@
+{
+  "id": "custom",
+  "name": "Custom venue",
+  "description": "Starts blank: one counter and one service type. Edit everything in the admin wizard.",
+  "timezone": "Asia/Kolkata",
+  "open_hours": [
+    {"weekday": 0, "open": "09:00", "close": "18:00"}, {"weekday": 1, "open": "09:00", "close": "18:00"},
+    {"weekday": 2, "open": "09:00", "close": "18:00"}, {"weekday": 3, "open": "09:00", "close": "18:00"},
+    {"weekday": 4, "open": "09:00", "close": "18:00"}
+  ],
+  "settings": {},
+  "service_types": [
+    {"key": "general", "name": {"en": "General service", "hi": "सामान्य सेवा", "gu": "સામાન્ય સેવા"},
+     "prior_mean_seconds": 300, "prior_cv": 0.6, "color": "#1F6FEB", "allows_priority": true, "resource_kind": "counter"}
+  ],
+  "resources": [
+    {"kind": "counter", "label": "Counter 1", "capacity": 1, "service_keys": ["general"]}
+  ],
+  "arrivals": {"base_per_hour": {"general": 8}, "peaks": []},
+  "sample_names": ["Asha", "Vikram", "Sana"],
+  "staff_pin": "1234",
+  "admin_pin": "0000"
+}

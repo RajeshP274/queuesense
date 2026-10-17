@@ -1,0 +1,44 @@
+{
+  "id": "restaurant",
+  "name": "Restaurant",
+  "emoji": "🍽️",
+  "description": "Tables for 2, 4 and 6 with smart seating, plus a takeaway counter. Table bookings with a grace window.",
+  "timezone": "Asia/Kolkata",
+  "open_hours": [
+    {"weekday": 0, "open": "11:00", "close": "23:00"}, {"weekday": 1, "open": "11:00", "close": "23:00"},
+    {"weekday": 2, "open": "11:00", "close": "23:00"}, {"weekday": 3, "open": "11:00", "close": "23:00"},
+    {"weekday": 4, "open": "11:00", "close": "23:30"}, {"weekday": 5, "open": "11:00", "close": "23:30"},
+    {"weekday": 6, "open": "11:00", "close": "23:30"}
+  ],
+  "settings": {"call_mode": "auto_suggest", "priority_enabled": false, "max_dwell_minutes": 90,
+               "self_release_enabled": true, "call_timeout_seconds": 300, "max_table_oversize": 2,
+               "prebook_slot_minutes": 30, "prebook_capacity_cap": 0.6},
+  "service_types": [
+    {"key": "dine", "name": {"en": "Table for dining", "hi": "भोजन के लिए टेबल", "gu": "જમવા માટે ટેબલ"},
+     "prior_mean_seconds": 3000, "prior_cv": 0.4, "color": "#B9472A", "allows_priority": false, "resource_kind": "table"},
+    {"key": "takeaway", "name": {"en": "Takeaway order", "hi": "टेकअवे ऑर्डर", "gu": "ટેકઅવે ઓર્ડર"},
+     "prior_mean_seconds": 600, "prior_cv": 0.5, "color": "#E9A23B", "allows_priority": false, "resource_kind": "counter"}
+  ],
+  "resources": [
+    {"kind": "table", "label": "Table 1", "capacity": 2, "service_keys": ["dine"]},
+    {"kind": "table", "label": "Table 2", "capacity": 2, "service_keys": ["dine"]},
+    {"kind": "table", "label": "Table 3", "capacity": 2, "service_keys": ["dine"]},
+    {"kind": "table", "label": "Table 4", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "Table 5", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "Table 6", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "Table 7", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "Table 8", "capacity": 6, "service_keys": ["dine"]},
+    {"kind": "table", "label": "Table 9", "capacity": 6, "service_keys": ["dine"]},
+    {"kind": "counter", "label": "Takeaway", "capacity": 1, "service_keys": ["takeaway"]}
+  ],
+  "arrivals": {
+    "base_per_hour": {"dine": 6, "takeaway": 4},
+    "peaks": [
+      {"from": "13:00", "to": "14:30", "mult": 2.2},
+      {"from": "20:00", "to": "22:00", "mult": 2.6}
+    ]
+  },
+  "sample_names": ["Ananya", "Rohan", "Zoya"],
+  "staff_pin": "1234",
+  "admin_pin": "0000"
+}

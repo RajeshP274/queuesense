@@ -1,0 +1,52 @@
+{
+  "id": "canteen",
+  "name": "College canteen",
+  "description": "Tables for dine-in groups plus takeaway counters. Party-size aware seating.",
+  "timezone": "Asia/Kolkata",
+  "open_hours": [
+    {"weekday": 0, "open": "08:00", "close": "20:00"}, {"weekday": 1, "open": "08:00", "close": "20:00"},
+    {"weekday": 2, "open": "08:00", "close": "20:00"}, {"weekday": 3, "open": "08:00", "close": "20:00"},
+    {"weekday": 4, "open": "08:00", "close": "20:00"}, {"weekday": 5, "open": "08:00", "close": "20:00"},
+    {"weekday": 6, "open": "09:00", "close": "18:00"}
+  ],
+  "settings": {"call_mode": "auto_suggest", "priority_enabled": false, "max_dwell_minutes": 45,
+               "self_release_enabled": true, "call_timeout_seconds": 300, "max_table_oversize": 2},
+  "service_types": [
+    {"key": "dine", "name": {"en": "Dine-in table", "hi": "टेबल पर भोजन", "gu": "ટેબલ પર ભોજન"},
+     "prior_mean_seconds": 1320, "prior_cv": 0.45, "color": "#1F6FEB", "allows_priority": false, "resource_kind": "table"},
+    {"key": "takeaway", "name": {"en": "Takeaway counter", "hi": "टेकअवे काउंटर", "gu": "ટેકઅવે કાઉન્ટર"},
+     "prior_mean_seconds": 90, "prior_cv": 0.6, "color": "#12B76A", "allows_priority": false, "resource_kind": "counter"}
+  ],
+  "resources": [
+    {"kind": "table", "label": "T1", "capacity": 2, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T2", "capacity": 2, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T3", "capacity": 2, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T4", "capacity": 2, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T5", "capacity": 2, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T6", "capacity": 2, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T7", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T8", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T9", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T10", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T11", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T12", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T13", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T14", "capacity": 4, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T15", "capacity": 6, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T16", "capacity": 6, "service_keys": ["dine"]},
+    {"kind": "table", "label": "T17", "capacity": 6, "service_keys": ["dine"]},
+    {"kind": "counter", "label": "Takeaway 1", "capacity": 1, "service_keys": ["takeaway"]},
+    {"kind": "counter", "label": "Takeaway 2", "capacity": 1, "service_keys": ["takeaway"]}
+  ],
+  "arrivals": {
+    "base_per_hour": {"dine": 18, "takeaway": 24},
+    "peaks": [
+      {"from": "08:00", "to": "09:30", "mult": 0.7},
+      {"from": "12:30", "to": "14:00", "mult": 3.2},
+      {"from": "17:00", "to": "18:30", "mult": 1.8}
+    ]
+  },
+  "sample_names": ["Aarav", "Diya", "Kabir"],
+  "staff_pin": "1234",
+  "admin_pin": "0000"
+}

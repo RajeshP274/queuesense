@@ -1,0 +1,38 @@
+{
+  "id": "admin_office",
+  "name": "Administrative office",
+  "description": "Counters serving one to three service types each, separate queues per service.",
+  "timezone": "Asia/Kolkata",
+  "open_hours": [
+    {"weekday": 0, "open": "09:30", "close": "17:30"}, {"weekday": 1, "open": "09:30", "close": "17:30"},
+    {"weekday": 2, "open": "09:30", "close": "17:30"}, {"weekday": 3, "open": "09:30", "close": "17:30"},
+    {"weekday": 4, "open": "09:30", "close": "17:30"}, {"weekday": 5, "open": "09:30", "close": "13:30"}
+  ],
+  "settings": {"call_mode": "staff_tap", "priority_enabled": true, "call_timeout_seconds": 120},
+  "service_types": [
+    {"key": "docs", "name": {"en": "Document submission", "hi": "दस्तावेज़ जमा", "gu": "દસ્તાવેજ જમા"},
+     "prior_mean_seconds": 240, "prior_cv": 0.5, "color": "#1F6FEB", "allows_priority": true, "resource_kind": "counter"},
+    {"key": "cert", "name": {"en": "Certificate request", "hi": "प्रमाणपत्र अनुरोध", "gu": "પ્રમાણપત્ર વિનંતી"},
+     "prior_mean_seconds": 480, "prior_cv": 0.7, "color": "#F79009", "allows_priority": true, "resource_kind": "counter"},
+    {"key": "fees", "name": {"en": "Fee payment", "hi": "शुल्क भुगतान", "gu": "ફી ચુકવણી"},
+     "prior_mean_seconds": 180, "prior_cv": 0.4, "color": "#12B76A", "allows_priority": true, "resource_kind": "counter"},
+    {"key": "enquiry", "name": {"en": "General enquiry", "hi": "सामान्य पूछताछ", "gu": "સામાન્ય પૂછપરછ"},
+     "prior_mean_seconds": 120, "prior_cv": 0.8, "color": "#7A5AF8", "allows_priority": true, "resource_kind": "counter"}
+  ],
+  "resources": [
+    {"kind": "counter", "label": "Counter 1", "capacity": 1, "service_keys": ["docs", "cert"]},
+    {"kind": "counter", "label": "Counter 2", "capacity": 1, "service_keys": ["cert", "fees"]},
+    {"kind": "counter", "label": "Counter 3", "capacity": 1, "service_keys": ["fees", "docs", "cert"]},
+    {"kind": "counter", "label": "Counter 4", "capacity": 1, "service_keys": ["enquiry"]}
+  ],
+  "arrivals": {
+    "base_per_hour": {"docs": 5, "cert": 3.5, "fees": 6, "enquiry": 10},
+    "peaks": [
+      {"from": "11:00", "to": "13:00", "mult": 2.0},
+      {"from": "15:00", "to": "16:00", "mult": 1.4}
+    ]
+  },
+  "sample_names": ["Priya", "Imran", "Neha"],
+  "staff_pin": "1234",
+  "admin_pin": "0000"
+}

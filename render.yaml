@@ -1,0 +1,19 @@
+# One-click deploy on Render.com (free tier): New + > Blueprint > pick this GitHub repo.
+# Set MONGO_URL to a free MongoDB Atlas connection string; without it data is kept in memory only.
+services:
+  - type: web
+    name: queuesense
+    runtime: python
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: MONGO_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PHONE_PEPPER
+        generateValue: true
