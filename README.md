@@ -17,11 +17,11 @@ The customer website uses the workplace's own **colours, fonts and icon**. The o
 ## Start
 1. Double-click **`start.bat`**. The first run installs everything.
 2. Keep the window open.
-3. Open **http://localhost:8000**.
+3. Open **https://queuesense-r8rd.onrender.com/**.
 4. Phones on the same Wi-Fi use the network address shown in the window and on the tutorial page.
 
 - Data is stored in **MongoDB** (`mongodb://127.0.0.1:27017`, database `queuesense`). If MongoDB isn't running, the server falls back to an in-memory database, and that data is lost on restart.
-- **Tutorial:** http://localhost:8000/guide.
+- **Tutorial:** https://queuesense-r8rd.onrender.com/tour.
 
 ## Put it online (Render.com, free)
 1. Sign in to **render.com** with GitHub → **New + → Blueprint** → pick this repository. Render reads `render.yaml`.
